@@ -1,21 +1,52 @@
-label {
-    display: block;
-    margin-top: 16px;
-    margin-bottom: 6px;
-    color: #CBD5E1;
-    font-weight: 600;
+.header{
+margin-bottom:25px;
 }
 
-input {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    background: #0F172A;
-    color: white;
-    font-size: 16px;
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:20px;
 }
 
-input:focus {
-    outline: 2px solid #2563EB;
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+right:0;
+
+background:#111827;
+
+display:flex;
+
+justify-content:space-around;
+
+padding:12px 0;
+
+border-top:1px solid #2b3445;
+
+}
+
+.bottom-nav button{
+
+background:none;
+
+border:none;
+
+color:white;
+
+font-size:15px;
+
+cursor:pointer;
+
+}
+
+.container{
+
+padding-bottom:90px;
+
 }
