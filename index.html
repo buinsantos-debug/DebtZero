@@ -1,50 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DebtZero</title>
 
-  <link rel="stylesheet" href="style.css">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>DebtZero</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div id="app">
+<div class="container">
 
-<header class="header">
-    <h1>DebtZero</h1>
-    <p>Your Personal Financial OS</p>
-</header>
+<h1>DebtZero</h1>
 
-<section class="card">
-    <h2>Cash Available</h2>
-    <h1 id="cash">AED 0</h1>
-</section>
+<p>Financial Recovery Calculator</p>
 
-<section class="card">
-    <h2>Financial Health</h2>
+<div class="card">
 
-    <div class="progress">
-        <div class="bar"></div>
-    </div>
+<label>Monthly Salary</label>
+<input id="salary" type="number" value="7500">
 
-    <p>Recovery Mode</p>
-</section>
+<label>Rent</label>
+<input id="rent" type="number" value="1700">
 
-<section class="card">
+<label>Mashreq Payment</label>
+<input id="mashreq" type="number" value="1500">
 
-<h2>Today's Advice</h2>
+<label>Tabby Statement</label>
+<input id="tabby" type="number" value="1426.67">
 
-<ul>
-<li>No advice yet.</li>
-</ul>
+<label>Gym</label>
+<input id="gym" type="number" value="529">
 
-</section>
+<label>Phone</label>
+<input id="phone" type="number" value="60">
+
+<label>Family Support</label>
+<input id="family" type="number" value="135">
+
+<label>Sister Tabby</label>
+<input id="sister" type="number" value="310.24">
+
+<label>Food Budget</label>
+<input id="food" type="number" value="800">
+
+<label>Transport Budget</label>
+<input id="transport" type="number" value="200">
+
+<label>Date Budget</label>
+<input id="date" type="number" value="300">
+
+<button onclick="calculate()">
+
+Calculate
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Results</h2>
+
+<h3 id="remaining"></h3>
+
+<h3 id="safe"></h3>
 
 </div>
 
 <script src="app.js"></script>
 
 </body>
+
 </html>
