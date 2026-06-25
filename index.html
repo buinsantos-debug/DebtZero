@@ -1,80 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DebtZero</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>DebtZero</h1>
+<header class="header">
+    <h1>DebtZero</h1>
+    <p id="subtitle">Financial Recovery Dashboard</p>
+</header>
 
-<p>Financial Recovery Calculator</p>
+<main id="content"></main>
 
-<div class="card">
+<nav class="bottom-nav">
 
-<label>Monthly Salary</label>
-<input id="salary" type="number" value="7500">
-
-<label>Rent</label>
-<input id="rent" type="number" value="1700">
-
-<label>Mashreq Payment</label>
-<input id="mashreq" type="number" value="1500">
-
-<label>Tabby Statement</label>
-<input id="tabby" type="number" value="1426.67">
-
-<label>Gym</label>
-<input id="gym" type="number" value="529">
-
-<label>Phone</label>
-<input id="phone" type="number" value="60">
-
-<label>Family Support</label>
-<input id="family" type="number" value="135">
-
-<label>Sister Tabby</label>
-<input id="sister" type="number" value="310.24">
-
-<label>Food Budget</label>
-<input id="food" type="number" value="800">
-
-<label>Transport Budget</label>
-<input id="transport" type="number" value="200">
-
-<label>Date Budget</label>
-<input id="date" type="number" value="300">
-
-<button onclick="calculate()">
-
-Calculate
-
+<button onclick="showPage('dashboard')">
+🏠
+<br>
+Home
 </button>
 
-</div>
+<button onclick="showPage('expenses')">
+💸
+<br>
+Expenses
+</button>
 
-<div class="card">
+<button onclick="showPage('debts')">
+💳
+<br>
+Debts
+</button>
 
-<h2>Results</h2>
+<button onclick="showPage('settings')">
+⚙️
+<br>
+Settings
+</button>
 
-<h3 id="remaining"></h3>
-
-<h3 id="safe"></h3>
+</nav>
 
 </div>
 
 <script src="app.js"></script>
 
 </body>
-
 </html>
