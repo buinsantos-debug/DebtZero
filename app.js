@@ -1,8 +1,9 @@
 const user = {
-    name: "Buinar",
-    cash: 3598,
-    health: 28
+    cash:3598,
+    mashreq:16190,
+    tabby:1426,
+    health:28
 };
 
-document.getElementById("cash").textContent =
-    `AED ${user.cash.toLocaleString()}`;
+document.getElementById("cash").innerHTML=
+`AED ${user.cash.toLocaleString()}`;
