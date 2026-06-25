@@ -1,41 +1,36 @@
-let state=JSON.parse(localStorage.getItem("debtzero"))||{
- salary:7500,cash:3598,
- debts:{mashreq:16190,mashreqPayment:1500,tabby:1426.67},
- fixed:{rent:1700,gym:529,phone:60,family:135,sister:310.24},
- budget:{food:800,transport:200,dates:300}
+let state=JSON.parse(localStorage.getItem('debtzero'))||{
+salary:7500,cash:3598,
+expenses:[]
 };
-function save(){localStorage.setItem("debtzero",JSON.stringify(state));}
-function remaining(){
- return state.salary-state.fixed.rent-state.fixed.gym-state.fixed.phone-state.fixed.family-state.fixed.sister-state.debts.mashreqPayment-state.debts.tabby-state.budget.food-state.budget.transport-state.budget.dates;
-}
-function dashboard(){
-return `<div class="card balance"><small>Available Cash</small><h2>AED ${state.cash.toLocaleString()}</h2></div>
-<div class="grid">
-<div class="card"><h3>Remaining</h3><p>AED ${remaining().toFixed(2)}</p></div>
-<div class="card"><h3>Mashreq</h3><p>AED ${state.debts.mashreqPayment}</p></div>
-<div class="card"><h3>Tabby</h3><p>AED ${state.debts.tabby}</p></div>
-<div class="card"><h3>Salary</h3><p>AED ${state.salary}</p></div>
-</div>`;
-}
-function settings(){
-return `<div class="card">
-<label>Salary</label><input id="salary" value="${state.salary}">
+let page='home';
+function save(){localStorage.setItem('debtzero',JSON.stringify(state));}
+function render(){
+const c=document.getElementById('content');
+if(page==='home'){
+let spent=state.expenses.reduce((a,b)=>a+b.amount,0);
+c.innerHTML=`<div class="card"><h2>Cash</h2><h1>AED ${state.cash-spent}</h1></div>
+<div class="card"><b>Total Expenses:</b> AED ${spent}</div>`;
+}else if(page==='expenses'){
+let rows=state.expenses.map(e=>`<li>${e.category}: AED ${e.amount} - ${e.note}</li>`).join('');
+c.innerHTML=`<div class="card">
+<input id="amt" type="number" placeholder="Amount">
+<select id="cat"><option>Food</option><option>Transport</option><option>Date</option><option>Other</option></select>
+<input id="note" placeholder="Description">
+<button onclick="addExpense()">Add Expense</button>
+</div>
+<div class="card"><ul>${rows||'<li>No expenses yet</li>'}</ul></div>`;
+}else{
+c.innerHTML=`<div class="card">
+<label>Salary</label><input id="sal" value="${state.salary}">
 <label>Cash</label><input id="cash" value="${state.cash}">
-<button class="save" onclick="saveSettings()">Save</button></div>`;
+<button onclick="saveSettings()">Save</button></div>`;
+}}
+function addExpense(){
+const e={amount:Number(amt.value),category:cat.value,note:note.value};
+if(!e.amount)return;
+state.expenses.push(e);save();render();
 }
 function saveSettings(){
-state.salary=Number(document.getElementById('salary').value);
-state.cash=Number(document.getElementById('cash').value);
-save();
-showPage('dashboard');
+state.salary=Number(sal.value);state.cash=Number(cash.value);save();page='home';render();
 }
-function debts(){return `<div class="card"><h2>Mashreq</h2><p>AED ${state.debts.mashreq}</p></div>`;}
-function expenses(){return `<div class="card"><h2>Expenses</h2><p>Coming in v0.4</p></div>`;}
-function showPage(p){
-const c=document.getElementById('content');
-if(p==='dashboard') c.innerHTML=dashboard();
-if(p==='settings') c.innerHTML=settings();
-if(p==='debts') c.innerHTML=debts();
-if(p==='expenses') c.innerHTML=expenses();
-}
-showPage('dashboard');
+render();

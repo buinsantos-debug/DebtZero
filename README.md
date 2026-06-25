@@ -1,7 +1,2 @@
-# DebtZero v0.3
-
-Features:
-- Dashboard
-- Settings with localStorage
-- Bottom navigation
-- Debt overview
+# DebtZero v0.4
+Adds expense tracking with localStorage.

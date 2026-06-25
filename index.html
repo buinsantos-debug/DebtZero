@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html><head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DebtZero v0.3</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DebtZero v0.4</title>
 <link rel="stylesheet" href="style.css">
-</head>
-<body>
+</head><body>
 <div class="container">
-<header class="header">
 <h1>DebtZero</h1>
-<p>Financial Recovery Dashboard</p>
-</header>
-<main id="content"></main>
-<nav class="bottom-nav">
-<button onclick="showPage('dashboard')">Home</button>
-<button onclick="showPage('expenses')">Expenses</button>
-<button onclick="showPage('debts')">Debts</button>
-<button onclick="showPage('settings')">Settings</button>
+<div id="content"></div>
+<nav class="bottom">
+<button onclick="page='home';render()">Home</button>
+<button onclick="page='expenses';render()">Expenses</button>
+<button onclick="page='settings';render()">Settings</button>
 </nav>
 </div>
 <script src="app.js"></script>
-</body>
-</html>
+</body></html>
